@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sills and Certifications</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to external CSS -->
+</head>
+<body class="nothome">
+
+
+    <h1>Skills and Certifications</h1>
+
+<section>
+    <h2>Technical Skills</h2>
+    <ul>
+        <li>Programming Languages: Python, Java, C++</li>
+        <li>Machine Learning & AI: TensorFlow, PyTorch, Scikit-Learn</li>
+        <li>Web Development: HTML, CSS, JavaScript</li>
+        <li>Database Management: MySQL, PostgreSQL</li>
+        <li>Version Control: Git, GitHub</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Soft Skills</h2>
+    <ul>
+        <li>Problem-Solving</li>
+        <li>Critical Thinking</li>
+        <li>Team Collaboration</li>
+        <li>Effective Communication</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Certifications</h2>
+    <ul>
+        <li>Google Data Analytics Professional Certificate</li>
+        <li>IBM Machine Learning with Python</li>
+        <li>Microsoft Certified: Azure AI Engineer Associate</li>
+    </ul>
+</section>
+
+<section>
+        <div id="slideshow">
+            <div id="slideshow-container"></div>
+        </div>
+
+    </section>
+
+
+    <script>
+        let currentSlide = 0;
+        const totalCertificates = 4;  // Adjust based on the number of images you have
+        const imagePath = "certificates/"; // Directory where images are stored
+        const imagePrefix = "cert"; // Example: cert1.jpg, cert2.jpg, etc.
+        const imageExtension = ".jpg"; // Change if using .png or another format
+
+        // Generate image elements dynamically
+        const container = document.getElementById("slideshow-container");
+        for (let i = 1; i <= totalCertificates; i++) {
+            let img = document.createElement("img");
+            img.src = `${imagePath}${imagePrefix}${i}${imageExtension}`;
+            img.classList.add("slide");
+            if (i !== 1) img.style.display = "none";
+            container.appendChild(img);
+        }
+
+        const slides = document.querySelectorAll(".slide");
+
+        function showSlide() {
+            slides.forEach(slide => slide.style.display = "none");
+            slides[currentSlide].style.display = "block";
+            currentSlide = (currentSlide + 1) % slides.length;
+        }
+
+        showSlide();
+        setInterval(showSlide, 3000); // Change slide every 3 seconds
+    </script>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="dropdown">
+            <button class="dropbtn">Menu ▼</button>
+            <div class="dropdown-content">
+                <a href="home.html">Home</a>
+                <a href="education.html">Education</a>
+                <a href="research.html">Researchs</a>
+                <a href="skills.html">Skills and Certifications</a>
+                <a href="projects.html">Projects</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
